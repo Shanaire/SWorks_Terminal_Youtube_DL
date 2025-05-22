@@ -1,0 +1,3 @@
+python ./yt-dlp <videoLink>
+python ./yt-dlp --help
+
