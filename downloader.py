@@ -73,7 +73,7 @@ def isPlaylistCheck(pUrl):
         return "noplaylist"
 
 def isAudioCheck()-> bool:
-    res = input("\nDo you want to download audio (y or *n*): ")
+    res = input("\nDo you want to download audio only: (y or *n*): ")
     return processBoolCheck(res)
     
 def processBoolCheck(pResult)-> bool:
@@ -119,7 +119,7 @@ def main():
         else:
             ProcessVideo(url)
 
-    res = input("\nWould you like to download another (y or *n*):")
+    res = input("\nWould you like to download another: (y or *n*):")
     if (processBoolCheck(res)):
         main()
 
