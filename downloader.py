@@ -1,5 +1,6 @@
 import os
 import json
+import time
 
 from dataclasses import dataclass, asdict, field
 
@@ -85,18 +86,18 @@ def processBoolCheck(pResult)-> bool:
         return False         
     
 def ProcessPlaylist(pUrl):
-    outCommand = "-o '%(uploader)s/%(playlist)s/%(title)s.%(ext)s'"
+    outCommand = "-o '%(uploader)s/%(playlist)s/%(title)s.%(ext)s' --exec 'python ./renameFile.py'"
     if (isAudioCheck()):
         runCommandAudio(pUrl, outCommand)
     else:
         runCommandVideo(pUrl, outCommand)
 
 def ProcessVideo(pUrl):
-    outCommand = "-o '%(uploader)s/%(title)s.%(ext)s'"  
+    outCommand = "-o '%(uploader)s/%(title)s.%(ext)s' --exec 'python ./renameFile.py'"  
     runCommandVideo(pUrl, outCommand) 
 
 def ProcessAudio(pUrl):
-    outCommand = "-o '%(uploader)s/%(title)s.%(ext)s'"
+    outCommand = "-o '%(uploader)s/%(title)s.%(ext)s' --exec 'python ./renameFile.py'"
     runCommandAudio(pUrl, outCommand)    
 
 def main():
