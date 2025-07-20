@@ -68,8 +68,8 @@ def runCommand(pCommand, pDownloadFolder):
 def isPlaylistCheck(pUrl):
     if ('playlist' in pUrl):
         print("\nThis link is for a playlist.")
-        res = input("Do you want to download the videos in the Playlist (y or *n*): ")
-        return processBoolCheck(res)
+        res = input("Do you want to download the videos in the Playlist (*y* or n): ")
+        return processBoolCheckYes(res)
     else:
         return "noplaylist"
 
@@ -84,6 +84,14 @@ def processBoolCheck(pResult)-> bool:
         return False
     else:
         return False         
+
+def processBoolCheckYes(pResult)-> bool:
+    if (pResult.lower() == "y"):
+        return True
+    elif (pResult.lower() == "n"):
+        return False
+    else:
+        return True
     
 def ProcessPlaylist(pUrl):
     outCommand = "-o '%(uploader)s/%(playlist)s/%(title)s.%(ext)s' --exec 'python ./renameFile.py'"
