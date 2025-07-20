@@ -13,6 +13,7 @@ def main():
     new_file_name = os.path.basename(file_path)
     if new_file_name.startswith("."):
         new_file_name = new_file_name[1:]
+        new_file_name = f"Dot{new_file_name}"
         new_file_path = os.path.join(dirPath, new_file_name)
         print("Updated fileName: ", new_file_name)
         # Rename the file

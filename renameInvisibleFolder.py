@@ -14,8 +14,12 @@ def processFolder(pFolder):
             if cItem.startswith("."):
                 toProcess = True
                 print(f'Folder to rename: {cItem}')
+
+                removedDotName = cItem[1:]
+                updatedName = f'Dot{removedDotName}'
+                
                 cItemPath = f'{os.getcwd()}{pFolder[1:]}/{item}/{cItem}'
-                cItemPathNew = f'{os.getcwd()}{pFolder[1:]}/{item}/{cItem[1:]}'
+                cItemPathNew = f'{os.getcwd()}{pFolder[1:]}/{item}/{updatedName}'
                 print(f'Old Path: {cItemPath}')
                 print(f'New Path: {cItemPathNew}')
 
