@@ -16,21 +16,22 @@ def main():
     sourceVideoFolder = settings.download.downloadVideoFolder 
     sourceAudioFolder = settings.download.downloadAudioFolder
 
-    res = input("Clean up video (y or *n*): ")
-    if (dwn.processBoolCheck(res)):
+    res = input("\nClean Video Folder (*y* or n): ")
+    if (dwn.processBoolCheckYes(res)):
         cleanSource(sourceVideoFolder)
 
 
-    res = input("Clean up audio (y or *n*): ")
-    if (dwn.processBoolCheck(res)):
-        print("Clean Audio")    
+    res = input("\nClean Audio Folder (*y* or n): ")
+    if (dwn.processBoolCheckYes(res)):  
         cleanSource(sourceAudioFolder)
 
-    print("\nCompleted!")
+    print("\nClean Completed!")
 
 if __name__ == "__main__":
-    print("File mover developed by SWorks Solutions Ltd")
-    print("Thanks for using our tool!\n")
+    print("SW FOLDER CLEANER")
+    print("Developed by SWorks Solutions Ltd")
+    print("\nCleans the audio and video folders by\ndeleting all files in the selected folders.")
+    print("\nThanks for using our tool!\n")
     try:
         main()
     except Exception as error:
