@@ -14,7 +14,7 @@ def runCommand(pCommand):
     os.system(pCommand)
 
 def main():
-    print("Starting the moving process")
+    print("Starting the copying process")
     global settings
     settings = dwn.loadSettings()
     destinationDownloadFolder = settings.move.storageDownloadFolder
@@ -24,14 +24,21 @@ def main():
     videoDest = f'{destinationDownloadFolder}'
     audioDest = f'{destinationDownloadFolder}'
 
-    moveSource(sourceVideoFolder, videoDest)
-    moveSource(sourceAudioFolder, audioDest)
+    res = input("\nCopy Video Content (*y* or n): ")
+    if (dwn.processBoolCheckYes(res)):
+        moveSource(sourceVideoFolder, videoDest)
+    
+    res = input("\nCopy Audio Content (*y* or n): ")
+    if (dwn.processBoolCheckYes(res)):
+        moveSource(sourceAudioFolder, audioDest)
 
-    print("\nMoving files complete!")
+    print("\nCoping files complete!")
 
 if __name__ == "__main__":
-    print("File mover developed by SWorks Solutions Ltd")
-    print("Thanks for using our tool!\n")
+    print("SW FILE COPIER")
+    print("Developed by SWorks Solutions Ltd")
+    print("\nTo copy files from a source folder to its destinstion folder.")
+    print("\nThanks for using our tool!\n")
     try:
         main()
     except Exception as error:
