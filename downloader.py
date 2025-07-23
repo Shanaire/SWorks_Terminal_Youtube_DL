@@ -47,7 +47,9 @@ def loadSettings()-> SettingsMain:
 def runCommandVideo(pUrl, pOutCommand):
     global settings
     downloadFolder = settings.download.downloadVideoFolder
-    videoQualCommand = "-f 'mp4[height<=1080]+bestaudio'"
+    # videoQualCommand = "-f 'mp4[height<=1080]+bestaudio'"
+    # videoQualCommand = "-f 'mp4[height<=1080]+ba/b[height<=1080]'+ba/b"
+    videoQualCommand = "-f 'bv*[height<=1080]+ba/b[height<=1080]'+ba/b --remux-video mp4"
     pCommand = f"{videoQualCommand} {pOutCommand} {pUrl}"
     runCommand(pCommand, downloadFolder)
 
